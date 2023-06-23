@@ -30,7 +30,12 @@ Note*:
 - VANILLA JS, CSS ARE USED. The power of Vanilla
 
 ## Deployment
+You can access the live version of the website by click this link: [https://jejakjejaka.netlify.app/](https://jejakjejaka.netlify.app/).
 
+Feel free to edit or rebuild this site for personal purpose
+
+
+## Reach Me Out
 
 [![Linkedin Badge](https://img.shields.io/badge/-Ade_Kresna_D-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ade-kresna-dewantara/)
 [![Gmail Badge](https://img.shields.io/badge/-kresnafti2013@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white)](mailto:kresnafti2013@gmail.com)
