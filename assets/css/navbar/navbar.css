@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  box-shadow: 1px 1px 5px 0px var(--gray);
+  width: 100%;
+  background-color: var(--white);
+  z-index: 1;
+}
+
+nav.desktop ul {
+  display: flex;
+  list-style-type: none;
+}
+/* nav.desktop ul li {
+  padding: 5%;
+} */
+nav.desktop ul li a {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+}
+nav.desktop ul li:hover {
+  background-color: var(--gray);
+  border-radius: 5px;
+  height: 50%;
+}
+nav.desktop ul li:hover a {
+  color: var(--white);
+}
+.menu-desktop {
+  align-self: self-end;
+  width: 20%;
+}
+.logo {
+  padding: 15px;
+}
