@@ -51,7 +51,7 @@ body{
   }
   .track-wrapper {
     flex-direction: column;
-    width: 90%;
+    width: 100%;
   }
 
   .img-thumbnail {
@@ -95,7 +95,7 @@ body{
   .gallery-placement {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
   }
   .gallery-placement figure img {
     width: 100%;
@@ -106,12 +106,12 @@ body{
     text-align: center;
   }
   .contact-wrapper {
-    width: 38%;
+    width: 50%;
   }
 
 }
 
- @media (min-width: 576px) and (max-width: 768px)  {
+ @media (min-width: 577px) and (max-width: 768px)  {
   nav.desktop {
     display: none;
   }
@@ -133,7 +133,7 @@ body{
     right: 20%;
   }
   .trek {
-    width: 88%;
+    width: 100%;
   }
   .article-text {
     max-width: 40%;
@@ -165,7 +165,7 @@ body{
     text-align: center;
   }
   .gallery-wrapper {
-    width: 89%;
+    width: 100%;
   }
   
   .img-thumbnail {
@@ -182,9 +182,6 @@ body{
   
   .font-marginL, .font-marginC {
     margin-left: 1.5em;
-  }
-  .contact-wrapper {
-    width: 68%;
   }
 
 }
@@ -253,16 +250,16 @@ body{
     width: 100%;
   }
   .stories article {
-    width: 88%;
+    width: 100%;
   }
   .trek-ordinary, .trek-highlight {
     padding-left: 5%;
-    padding-right: 12%;
+    /* padding-right: 12%; */
   }
   .gallery-content {
     flex-direction: column;
     padding-left: 5%;
-    padding-right: 15%;
+    padding-right: 5%;
   }
   .gallery-content .gallery-intro {
     text-align: center;
