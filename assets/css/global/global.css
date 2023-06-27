@@ -51,7 +51,7 @@ body{
   }
 
   .hamburger {
-    position: fixed;
+    position: fixed!important;
   }
   
   .track-wrapper {
@@ -121,7 +121,7 @@ body{
     z-index: 1;
   }
   .hamburger {
-    position: fixed;
+    position: fixed!important;
   }
 
   .header {
@@ -233,9 +233,6 @@ body{
     text-align: center;
   }
 }
-
-
-
 
 @media (min-width: 992px) and (max-width: 1200px)  {
   nav.mobile {
