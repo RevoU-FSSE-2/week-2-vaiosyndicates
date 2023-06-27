@@ -44,11 +44,16 @@ body{
   }
   .img-hamburger {
     top: 45%;
-    right: 20%;
+    right: 5%;
   }
   .img-close{
     z-index: 1;
   }
+
+  .hamburger {
+    position: fixed;
+  }
+  
   .track-wrapper {
     flex-direction: column;
     width: 100%;
@@ -81,9 +86,6 @@ body{
   }
   .stories {
     width: 100%;
-  }
-  .stories-content {
-    margin: 2em;
   }
   .gallery-content {
     flex-direction: column;
@@ -118,6 +120,9 @@ body{
   nav.hamburger {
     z-index: 1;
   }
+  .hamburger {
+    position: fixed;
+  }
 
   .header {
     width: 100%;
@@ -130,7 +135,7 @@ body{
   }
   .img-hamburger {
     top: 45%;
-    right: 20%;
+    right: 5%;
   }
   .trek {
     width: 100%;
@@ -186,16 +191,9 @@ body{
 
 }
 
-
-@media (min-width: 992px) and (max-width: 1200px)  {
+ @media (min-width: 769px) and (max-width: 991px)  {
   nav.mobile {
     display: none;
-  }
-  
-  nav.desktop {
-    position: absolute;
-    top: 35%;
-    right: 30%;
   }
 
   .header {
@@ -207,9 +205,59 @@ body{
     background-color: var(--white);
     z-index: 1;
   }
+  .menu-desktop {
+    align-self: self-end;
+    width: 30%;
+  }
+  nav.desktop ul li {
+    padding: 5%;
+  }
+  .track-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ordinary-article {
+    flex-direction: column;
+  }
+  .img-thumbnail {
+    height: 100%;
+    width: 100%;
+  }
+  .trek-article figure {
+    flex-direction: column;
+  }
+  .font-marginL, .font-marginC {
+    margin-left: 1.5em;
+  }
+  .gallery-content .gallery-intro {
+    text-align: center;
+  }
+}
+
+
+
+
+@media (min-width: 992px) and (max-width: 1200px)  {
+  nav.mobile {
+    display: none;
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    box-shadow: 1px 1px 5px 0px var(--gray);
+    background-color: var(--white);
+    z-index: 1;
+  }
+  .menu-desktop {
+    align-self: self-end;
+    width: 25%;
+  }
 
   nav.desktop ul li {
-    padding: 25%;
+    padding: 5%;
   }
   nav.desktop ul {
     padding: 0%;
@@ -280,6 +328,10 @@ body{
   .track-wrapper {
     flex-direction: column;
   }
+  .item-grid:hover img {
+    transform: scale(1.25);
+  }
+  
 }
 
 @media (min-width: 1201px){
@@ -295,6 +347,11 @@ body{
     width: 100%;
     background-color: var(--white);
     z-index: 1;
+  }
+
+  .menu-desktop {
+    align-self: self-end;
+    width: 20%;
   }
 
   nav.desktop ul li {
@@ -345,6 +402,10 @@ body{
   .item-grid {
     margin: 2%;
   }
+  .item-grid:hover img {
+    transition: 0.2s linear;
+    transform: scale(1.25);
+  }
 
 }
 
@@ -387,10 +448,6 @@ article.trek-article figure {
 section {
   padding: 3% 0 3% 0;
 }
-/* .font-marginL {
-  margin-left: 1.5em;
-} */
-
 
 #grid-1 {
   grid-column: 1;
@@ -413,9 +470,5 @@ section.contact {
 
  .form-hiker h2, .form-hiker p, .form-hiker legend, .form-hiker label, section.contact h2 {
   color: var(--white);
-}
-
-.item-grid:hover img {
-  transform: scale(1.25);
 }
 

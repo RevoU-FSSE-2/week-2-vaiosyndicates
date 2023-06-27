@@ -28,10 +28,10 @@ nav.desktop ul li:hover {
 nav.desktop ul li:hover a {
   color: var(--white);
 }
-.menu-desktop {
+/* .menu-desktop {
   align-self: self-end;
   width: 20%;
-}
+} */
 .logo {
   padding: 15px;
 }
