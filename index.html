@@ -17,11 +17,16 @@
 			<img src="/assets/image/logo/logo-no-background.png" width="100" height="100" alt="">
 		</div>
 		<div class="menu-desktop">
-			<nav class="desktop">
+			<nav class="desktop" id="desktop">
 				<ul>
 					<li><a href="#">Home</a></li>
 					<li><a href="#track">Jalur</a></li>
 					<li><a href="#contact">Kontak</a></li>
+					<li>
+						<img src="/assets/image/icon/moon.png" alt="" class="img-dark" id="img-dark" onclick="lightMode()">
+						<img src="/assets/image/icon/night-mode.png" width="35" height="30" alt="" class="img-light" id="img-light" onclick="darkMode()">
+					</li>
+					<!-- <li><img src="/assets/image/icon/night.png" alt="" class="img-dark" id="img-dark" onclick="lightMode()"></li> -->
 				</ul>
 			</nav>
 			<nav class="mobile">
@@ -31,11 +36,24 @@
 		</div>
 	</header>
 	<nav class="hamburger" id="hamburger">
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#track">Jalur</a></li>
-			<li><a href="#contact">Kontak</a></li>
-		</ul>
+		<div class="mobile-wrap">
+			<div></div>
+			<div>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#track">Jalur</a></li>
+					<li><a href="#contact">Kontak</a></li>
+				</ul>
+			</div>
+			<div>
+				<ul>
+					<li>
+						<img src="/assets/image/icon/brightness.png" alt="" class="img-dark-mobile" id="img-dark-mobile" onclick="darkMode('mobile')">
+						<img src="/assets/image/icon/moon.png" width="35" height="30" alt="" class="img-light-mobile" id="img-light-mobile" onclick="lightMode('mobile')">
+					</li>			
+				</ul>
+			</div>
+		</div>
 	</nav>
 	<main class="main">
 		<div class="frame">
@@ -215,21 +233,35 @@
 		</section>
 	</main>
 	<script>
-			window.onscroll = function() {
-				myFunction()
-			};
-			let header = document.getElementById("header");
-			let sticky = header.offsetTop;
+			window.onload = function (e) {
+				let elem = document.getElementById("gallery")
+				let elemContact = document.getElementById("contact")
+				let elemTrek = document.getElementById("track")
+				let rect = elem.getBoundingClientRect().y;
+				let rectContact = elemContact.getBoundingClientRect().y
+				let rectTrek = elemTrek.getBoundingClientRect().y
+				// console.log(window.innerHeight)
+				window.addEventListener("scroll", function(event) {
+						let topGallery = this.scrollY + window.innerHeight ;
+						let topContact = this.scrollY + window.innerHeight;
+						let topTrek = this.scrollY + window.innerHeight;
+						if(topGallery >= rect) {
+							elem.classList.add("scrolled");
+						} else {
+							elem.classList.remove('scrolled');
+						}
 
-			function myFunction() {
-				if (window.pageYOffset > sticky) {
-					header.classList.add("sticky");
-					
-				} else {
-					header.classList.remove("sticky");
-				}
+						if (topContact >= rectContact) {
+							elemContact.classList.add("scrolled-right");
+						} else {
+							elemContact.classList.remove("scrolled-right");
+						}
+					// console.log(rect)
+								// console.log(top)
+				}, false);
 			}
 	</script>
 	<script src="/assets/js/hamburger/hamburger.js"></script>
+	<script src="/assets/js/nightmode/nightmode.js"></script>
 </body>
 </html>
