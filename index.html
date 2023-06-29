@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="/assets/css/navbar/hamburger.css">
 	<link rel="stylesheet" href="/assets/css/slider/slider.css">
 	<link rel="stylesheet" href="/assets/css/form/form.css">
+	<link rel="stylesheet" href="/assets/css/nightmode/nightmode.css">
 	<link rel="icon" href="/assets/image/logo/logo-no-background.png">
   <title>Jejak Jejaka</title>
 </head>
@@ -22,9 +23,17 @@
 					<li><a href="#">Home</a></li>
 					<li><a href="#track">Jalur</a></li>
 					<li><a href="#contact">Kontak</a></li>
-					<li>
-						<img src="/assets/image/icon/moon.png" alt="" class="img-dark" id="img-dark" onclick="lightMode()">
-						<img src="/assets/image/icon/night-mode.png" width="35" height="30" alt="" class="img-light" id="img-light" onclick="darkMode()">
+					<li class="isNightmode">
+						<div>
+							<img src="/assets/image/icon/day-and-night.png" alt="" class="img-toggle" id="img-toggle-dark">
+							<img src="/assets/image/icon/day-and-night-light.png" alt="" class="img-toggle" id="img-toggle-light">
+						</div>
+						<div>
+							<label class="switch">
+								<input type="checkbox" onclick="darkMode()" id="nightmode">
+								<span class="slider"></span>
+							</label>
+						</div>
 					</li>
 					<!-- <li><img src="/assets/image/icon/night.png" alt="" class="img-dark" id="img-dark" onclick="lightMode()"></li> -->
 				</ul>
@@ -47,9 +56,16 @@
 			</div>
 			<div>
 				<ul>
-					<li>
-						<img src="/assets/image/icon/brightness.png" alt="" class="img-dark-mobile" id="img-dark-mobile" onclick="darkMode('mobile')">
-						<img src="/assets/image/icon/moon.png" width="35" height="30" alt="" class="img-light-mobile" id="img-light-mobile" onclick="lightMode('mobile')">
+					<li class="isnightmode-mobile">
+						<div>
+							<a href="javascript:void(0)">Dark Mode</a>
+						</div>
+						<div>
+							<label class="switch">
+								<input type="checkbox" onclick="darkMode('mobile')" id="nightmode-mobile">
+								<span class="slider"></span>
+							</label>
+						</div>
 					</li>			
 				</ul>
 			</div>
@@ -59,9 +75,9 @@
 		<div class="frame">
 			<div class="carousel">
 				<!-- <p class="element">"Incredible"</p> -->
-				<img src="https://picsum.photos/id/10/600/300" alt="" class="element">
-				<img src="https://picsum.photos/id/17/600/300" alt="" class="element">
-				<img src="https://picsum.photos/id/28/600/300" alt="" class="element">
+				<img src="/assets/image/thumbnail/banner-1.png" alt="" class="element">
+				<img src="/assets/image/thumbnail/banner-2.png" alt="" class="element">
+				<img src="/assets/image/thumbnail/banner-3.png" alt="" class="element">
 			</div>
 		</div>
 		<section class="track" id="track">
@@ -177,7 +193,19 @@
 					<h2>Join Me For Next Trip!</h2>
 				</div>
 				<div class="contact-form">
-					<div></div>
+					<div>
+						<picture>
+							<img
+								sizes="(max-width: 640px) 100vw, 640px"
+								srcset="
+									/assets/image/upload/people_wy3wba_c_scale,w_200.jpg 200w,
+									/assets/image/upload/people_wy3wba_c_scale,w_438.jpg 438w,
+									/assets/image/upload/people_wy3wba_c_scale,w_600.jpg 600w,
+									/assets/image/upload/people_wy3wba_c_scale,w_640.jpg 640w"
+								src="/assets/image/upload/people_wy3wba_c_scale,w_640.jpg"
+								alt="">
+						</picture>
+					</div>
 					<div>
 						<form action="javascript:void(0)" class="form-hiker">
 							<fieldset>
@@ -186,19 +214,25 @@
 									<label for="name">Full Name</label>
 								</div>
 								<div>
-									<input type="text" name="name" id="name" class="input-primary">
+									<input type="text" name="name" id="name" class="input-primary" required>
 								</div>
 								<div>
 									<label for="name">Email</label>
 								</div>
 								<div>
-									<input type="email" name="email" id="email" class="input-primary">
+									<input type="email" name="email" id="email" class="input-primary" required>
+								</div>
+								<div>
+									<label for="dob">Date of Birth</label>
+								</div>
+								<div>
+									<input type="date" name="dob" id="dob" class="input-primary" max="2017-12-31" required>
 								</div>
 							</fieldset>
 							<fieldset>
 								<legend>Hiker Information</legend>
 								<div>
-									<p>What are your marital status?</p>
+									<label for="marital">Marital Status</label>
 								</div>
 								<div>
 									<input type="radio" id="single" name="isSingle" value="Single">
@@ -216,18 +250,17 @@
 									<label for="environtment">Environtment</label>
 								</div>
 								<div>
-									<p>What's your opinion about society nowadays?</p>
+									<label for="yourstory">Please tell us about your hiking activity</label>
 									<textarea rows="10" ></textarea>
 								</div>
 								<div>
-									<p>Upload Your Latest Story Here:</p>
+									<label for="upload">Upload your latest Story here</label>
 									<input type="file" accept=".doc,.docx,.txt,.pdf" name="stori" id="stori" />
 								</div>
 							</fieldset>
 							<button type="submit" class="btn-primary">Submit</button>
 						</form>
 					</div>
-					<div></div>
 				</div>
 			</div>
 		</section>
@@ -240,7 +273,28 @@
 				let rect = elem.getBoundingClientRect().y;
 				let rectContact = elemContact.getBoundingClientRect().y
 				let rectTrek = elemTrek.getBoundingClientRect().y
-				// console.log(window.innerHeight)
+				let session = localStorage.getItem('nightmode');
+				let checkBoxMobile = document.getElementById("nightmode-mobile");
+				let checkBox = document.getElementById("nightmode");
+				let header = document.getElementById('header');
+
+				if (session === 'true') {
+				  document.body.classList.add("dark-mode");
+      		header.classList.add("dark-mode");
+					checkBox.checked = true;
+					checkBoxMobile.checked = true;
+					document.getElementById("img-toggle-dark").style.display = 'none'
+      		document.getElementById("img-toggle-light").style.display = 'block'
+				} else {
+					document.body.classList.remove("dark-mode");
+      		header.classList.remove("dark-mode");
+					checkBox.checked = false;
+					checkBoxMobile.checked = false;
+					document.getElementById("img-toggle-dark").style.display = 'block'
+      		document.getElementById("img-toggle-light").style.display = 'none'
+				}
+
+
 				window.addEventListener("scroll", function(event) {
 						let topGallery = this.scrollY + window.innerHeight ;
 						let topContact = this.scrollY + window.innerHeight;

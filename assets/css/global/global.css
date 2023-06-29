@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
+@font-face {
+  font-family: "Cormorand Garamond";
+  src: url('/assets/font/CormorantGaramond-Regular.ttf');
+}
+
 :root{
     --white: #f9f9f9;
     --black: #36383F;
@@ -17,7 +22,7 @@ $w: Min(10em, 100%);
 body{
     margin: 0;
     background-color: var(--white);
-    font-family: "Poppins", sans-serif;
+    font-family: "Cormorand Garamond","Poppins", sans-serif;
 }
 
 @keyframes fadeIn {
@@ -28,6 +33,19 @@ body{
 @keyframes fadeOut {
   from { opacity: 1; }
     to { opacity: 0; }
+}
+
+.dark-mode {
+  background-color: #282828!important;
+  color: var(--white);
+}
+
+.dark-mode nav.desktop ul li a {
+  color: var(--white);
+}
+
+nav.desktop ul li a, nav.hamburger ul li a {
+  font-family: "Poppins", sans-serif;
 }
 
 
@@ -122,21 +140,24 @@ body{
     text-align: center;
   }
   .contact-wrapper {
-    width: 50%;
+    width: 100%;
+  }
+  .contact-form {
+    flex-direction: column;
   }
 
   .mobile-wrap {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
 }
 
  @media (min-width: 577px) and (max-width: 768px)  {
   nav.desktop {
-    display: none;
+    visibility: hidden;
   }
   nav.hamburger {
     z-index: 1;
@@ -219,14 +240,23 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+  }
+  .contact-wrapper {
+    width: 100%;
+  }
+  .contact-form {
+    flex-direction: column-reverse;
+  }
+  .contact-form img{
+    width: 100%;
   }
 
 }
 
  @media (min-width: 769px) and (max-width: 991px)  {
   nav.mobile {
-    display: none;
+   visibility: hidden;
   }
 
   .header {
@@ -245,7 +275,7 @@ body{
 
   .menu-desktop {
     align-self: self-end;
-    width: 50%;
+    width: 60%;
   }
   nav.desktop ul li {
     padding: 5%;
@@ -270,11 +300,27 @@ body{
   .gallery-content .gallery-intro {
     text-align: center;
   }
+  .contact-wrapper {
+    width: 100%;
+  }
+  .contact-form {
+    flex-direction: column-reverse;
+  }
+  .contact-form img{
+    width: 100%;
+    border-radius: 5px;
+  }
+  .isNightmode {
+    display: flex;
+  }
+  .isNightmode div {
+    padding: 0 5%;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1200px)  {
   nav.mobile {
-    display: none;
+    visibility: hidden;
   }
 
   .header {
@@ -373,12 +419,24 @@ body{
   .item-grid:hover img {
     transform: scale(1.25);
   }
-  
+  .contact-form img{
+    width: 100%;
+    border-radius: 5px;
+  }
+  .contact-form {
+    justify-content: space-evenly;
+  }
+  .isNightmode {
+    display: flex;
+  }
+  .isNightmode div {
+    padding: 0 5%;
+  }
 }
 
 @media (min-width: 1201px){
    nav.mobile {
-    display: none;
+    visibility: hidden;
   }
 
   .header {
@@ -458,6 +516,25 @@ body{
   }
   section.scrolled-right {
     animation: slide-in-right 2s ease-in-out both;
+  }
+  .contact-form {
+    justify-content: center;
+  }
+  .contact-form div {
+    margin: 0 2%;
+  }
+  .contact-form img{
+    width: 100%;
+    border-radius: 5px;
+  }
+  nav.hamburger {
+    display: none!important;
+  }
+  .isNightmode {
+    display: flex;
+  }
+  .isNightmode div {
+    padding: 0 5%;
   }
 }
 

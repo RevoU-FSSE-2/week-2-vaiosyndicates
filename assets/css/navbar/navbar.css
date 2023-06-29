@@ -20,7 +20,7 @@ nav.desktop ul li a {
   text-decoration: none;
   color: var(--black);
 }
-nav.desktop ul li:hover {
+nav.desktop ul li:not(:last-child):hover {
   background-color: var(--gray);
   border-radius: 5px;
   height: 50%;
